@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: campusbuzz-frontend-service
+  namespace: campus-demo
+spec:
+  type: LoadBalancer
+  selector:
+    app: campusbuzz-frontend
+  ports:
+    - port: 80
+      targetPort: 80

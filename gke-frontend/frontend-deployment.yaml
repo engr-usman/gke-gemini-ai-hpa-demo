@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: campusbuzz-frontend
+  namespace: campus-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: campusbuzz-frontend
+  template:
+    metadata:
+      labels:
+        app: campusbuzz-frontend
+    spec:
+      containers:
+      - name: campusbuzz-frontend
+        image: us-west1-docker.pkg.dev/gke-gemini-demo/gke-ai-demo-repo/campusbuzz-frontend:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
